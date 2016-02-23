@@ -1,4 +1,4 @@
-EC500 C1 Heart Health Project
+#EC500 C1 Heart Health Project
 
 ## Introduction
 
