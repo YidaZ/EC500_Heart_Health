@@ -17,21 +17,11 @@ from scipy.stats import linregress
 from scipy.ndimage.filters import gaussian_filter
 from scipy.optimize import curve_fit
 from scipy.interpolate import UnivariateSpline
-# from statsmodels.sandbox.regression.predstd import wls_prediction_std
 
-# number of bins to use in histogram for gaussian regression
 NUM_BINS = 100
-# number of standard deviations past which we will consider a pixel an outlier
 STD_MULTIPLIER = 2
-# number of points of our interpolated dataset to consider when searching for
-# a threshold value; the function by default is interpolated over 1000 points,
-# so 250 will look at the half of the points that is centered around the known
-# myocardium pixel
 THRESHOLD_AREA = 250
-# number of pixels on the line within which to search for a connected component
-# in a thresholded image, increase this to look for components further away
 COMPONENT_INDEX_TOLERANCE = 20
-# number of angles to search when looking for the correct orientation
 ANGLE_SLICES = 36
 
 def log(msg, lvl):
@@ -43,30 +33,16 @@ def log(msg, lvl):
 
 def auto_segment_all_datasets():
     d = sys.argv[1]
-    studies = next(os.walk(os.path.join(d, "train")))[1] #+ next(os.walk(os.path.join(d, "validate")))[1]
-    # labels = np.loadtxt(os.path.join(d, "train.csv"), delimiter=",",skiprows=1)
-
-    # label_map = {}
-    # for l in labels:
-    #     label_map[l[0]] = (l[2], l[1])
-
+    train = sys.argv[2]
+    studies = next(os.walk(os.path.join(d, train)))[1]
     num_samples = None
-    if len(sys.argv) > 2:
-        num_samples = int(sys.argv[2])
+    if len(sys.argv) > 3:
+        num_samples = int(sys.argv[3])
         studies = random.sample(studies, num_samples)
     if os.path.exists("output"):
         shutil.rmtree("output")
     os.mkdir("output")
 
-
-    # submit_csv = open("submit.csv", "w")
-    # submit_csv.write("Id,")
-    # for i in range(0, 600):
-    #     submit_csv.write("P%d" % i)
-    #     if i != 599:
-    #         submit_csv.write(",")
-    #     else:
-    #         submit_csv.write("\n")
 
     for s in studies:
         if int(s) <= 500:
@@ -75,7 +51,7 @@ def auto_segment_all_datasets():
             full_path = os.path.join(d, "validate", s)
 
         dset = Dataset(full_path, s)
-        print "Processing dataset %s..." % dset.name
+        #print "Processing dataset %s..." % dset.name
         p_edv = 0
         p_esv = 0
         try:
@@ -88,35 +64,6 @@ def auto_segment_all_datasets():
             p_ef  = (p_edv - p_esv) / p_edv
         except Exception as e:
             log("***ERROR***: Exception %s thrown by dataset %s" % (str(e), dset.name), 0)
-        # submit_csv.write("%d_systolic," % int(dset.name))
-        # for i in range(0, 600):
-        #     if i < p_esv:
-        #         submit_csv.write("0.0")
-        #     else:
-        #         submit_csv.write("1.0")
-        #     if i == 599:
-        #         submit_csv.write("\n")
-        #     else:
-        #         submit_csv.write(",")
-        # submit_csv.write("%d_diastolic," % int(dset.name))
-        # for i in range(0, 600):
-        #     if i < p_edv:
-        #         submit_csv.write("0.0")
-        #     else:
-        #         submit_csv.write("1.0")
-        #     if i == 599:
-        #         submit_csv.write("\n")
-        #     else:
-        #         submit_csv.write(",")
-        # (edv, esv) = label_map.get(int(dset.name), (None, None))
-        # if edv is not None:
-    accuracy_csv = open("accuracy.csv", "w")
-    accuracy_csv.write("Predicted EDV,"
-                       "Predicted ESV,"
-                       "Predicted EF\n")
-    accuracy_csv.write("%f,%f,%f\n" % (p_edv, p_esv, p_ef))
-    accuracy_csv.close()
-    # submit_csv.close()
 
 class Dataset(object):
     dataset_count = 0
@@ -201,18 +148,18 @@ def segment_dataset(dataset):
     dist = dataset.dist
     areaMultiplier = dataset.area_multiplier
     # shape: num slices, num snapshots, rows, columns
-    log("Calculating rois...", 1)
+    #log("Calculating rois...", 1)
     rois, circles = calc_rois(images)
-    log("Calculating areas...", 1)
+    #log("Calculating areas...", 1)
     all_masks, all_areas = calc_all_areas(images, rois, circles)
-    log("Calculating volumes...", 1)
+    #log("Calculating volumes...", 1)
     area_totals = [calc_total_volume(a, areaMultiplier, dist)
                    for a in all_areas]
-    log("Calculating ef...", 1)
+    #log("Calculating ef...", 1)
     edv = max(area_totals)
     esv = min(area_totals)
     ef = (edv - esv) / edv
-    log("Done, ef is %f" % ef, 1)
+    log("%f" % ef, 1)
 
     save_masks_to_dir(dataset, all_masks)
 
@@ -230,29 +177,21 @@ def segment_dataset(dataset):
 
 def calc_rois(images):
     (num_slices, _, _, _) = images.shape
-    log("Calculating mean...", 2)
     dc = np.mean(images, 1)
 
     def get_H1(i):
-        log("Fourier transforming on slice %d..." % i, 3)
         ff = fftn(images[i])
         first_harmonic = ff[1, :, :]
-        log("Inverse Fourier transforming on slice %d..." % i, 3)
         result = np.absolute(ifftn(first_harmonic))
-        log("Performing Gaussian blur on slice %d..." % i, 3)
         result = cv2.GaussianBlur(result, (5, 5), 0)
         return result
 
-    log("Performing Fourier transforms...", 2)
     h1s = np.array([get_H1(i) for i in range(num_slices)])
     m = np.max(h1s) * 0.05
     h1s[h1s < m] = 0
 
-    log("Applying regression filter...", 2)
     regress_h1s = regression_filter(h1s)
-    log("Post-processing filtered images...", 2)
     proc_regress_h1s, coords = post_process_regression(regress_h1s)
-    log("Determining ROIs...", 2)
     rois, circles = get_ROIs(dc, proc_regress_h1s, coords)
     return rois, circles
 
@@ -260,7 +199,6 @@ def regression_filter(imgs):
     condition = True
     iternum = 0
     while(condition):
-        log("Beginning iteration %d of regression..." % iternum, 3)
         iternum += 1
         imgs_filtered = regress_and_filter_distant(imgs)
         c1 = get_centroid(imgs)
@@ -386,7 +324,6 @@ def histogram_transform(values, weights):
 def post_process_regression(imgs):
     (numimgs, _, _) = imgs.shape
     centroids = np.array([get_centroid(img) for img in imgs])
-    log("Performing final centroid regression...", 3)
     (xslope, xintercept, yslope, yintercept) = regress_centroids(centroids)
     imgs_cpy = np.copy(imgs)
 
@@ -401,11 +338,6 @@ def post_process_regression(imgs):
             (z, x, y) = c
             imgs_cpy[z, x, y] = 0
 
-    log("Final image filtering...", 3)
-    for z in range(numimgs):
-        log("Filtering image %d of %d..." % (z+1, numimgs), 4)
-        filter_one_img(z)
-
     return (imgs_cpy, (xslope, xintercept, yslope, yintercept))
 
 def get_ROIs(originals, h1s, regression_params):
@@ -414,7 +346,6 @@ def get_ROIs(originals, h1s, regression_params):
     results = []
     circles = []
     for i in range(num_slices):
-        log("Getting ROI in slice %d..." % i, 3)
         o = originals[i]
         h = h1s[i]
         ctr = (xintercept + xslope * i, yintercept + yslope * i)
@@ -458,7 +389,6 @@ def calc_all_areas(images, rois, circles):
     (_, times, _, _) = images.shape
 
     def calc_areas(time):
-        log("Calculating areas at time %d..." % time, 2)
         mask, mean = locate_lv_blood_pool(images, rois, circles, closest_slice,
                                           time)
         masks, areas = propagate_segments(images, rois, mask, mean,
@@ -602,9 +532,6 @@ def get_line_coords(w, h, cx, cy, theta):
     return coords.astype(np.int)
 
 def bresenham(x0, x1, y0, y1, fn):
-    # using some pseudocode from
-    # https://en.wikipedia.org/wiki/Xiaolin_Wu%27s_line_algorithm
-    # and also https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm
     steep = abs(y1-y0) > abs(x1-x0)
     if steep:
         x0, x1, y0, y1 = y0, y1, x0, x1
@@ -624,7 +551,7 @@ def bresenham(x0, x1, y0, y1, fn):
     plot(x0, y0)
     y = y0
 
-    for x in range(x0+1, x1+1):  # x0+1 to x1
+    for x in range(x0+1, x1+1):  
         D = D + 2*np.abs(dy)
         if D > 0:
             y += np.sign(dy)
@@ -740,20 +667,7 @@ def calc_total_volume(areas, area_multiplier, dist):
 
 def save_masks_to_dir(dataset, all_masks):
     os.mkdir("output/%s" % dataset.name)
-    # for t in range(len(dataset.time)):
-    #     os.mkdir("output/%s/time%02d" % (dataset.name, t))
-        # for s in range(len(dataset.slices)):
-        #     mask = all_masks[t][s]
-        #     image.imsave("output/%s/time%02d/slice%02d_mask.png" %
-        #                  (dataset.name, t, s), mask)
-        #     eroded = binary_erosion(mask)
-        #     hollow_mask = np.where(eroded, 0, mask)
-        #     colorimg = cv2.cvtColor(dataset.images[s][t],
-        #                             cv2.COLOR_GRAY2RGB)
-        #     colorimg = colorimg.astype(np.uint8)
-        #     colorimg[hollow_mask != 0] = [255, 0, 255]
-        #     image.imsave("output/%s/time%02d/slice%02d_color.png" %
-        #                  (dataset.name, t, s), colorimg)
+
 
 if __name__ == "__main__":
     random.seed()
