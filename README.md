@@ -15,7 +15,7 @@ As you can see, we mainly distribute our project to four parts: Data-analysis, I
 
 ####Prediagnose
 
- This part is included in the Data-analysis. Except for their heart situation patients want to get , our website also provide a short quiz which gives feedback about the chance you might get hyperlipemia or hyperglycemia based on the data model we built. 
+ This part is included in the Data-analysis. Except for their heart situation patients want to get , our website also provide a short quiz which gives feedback about your hypertention risk and blood sugar risk based on the data model we built. 
  In this part, there are just one simple instruction to follow, filling in the form and waiting for the diagnose result. Simple and convenient to use. 
 
 ####Heart health analysis
