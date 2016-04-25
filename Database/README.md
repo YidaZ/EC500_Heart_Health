@@ -1,6 +1,6 @@
 ###Dataset
- There are mainly two dataset applied to our project.
- First part is the excel file above is used for building the data model for prediagnose. 
+ There are mainly two datasets used for the project.
+ First part is the excel file above used for building the data model for prediagnose. 
 
  The second part is the the whole dataset consists of MRI images we download from : https://www.kaggle.com/c/second-annual-data-science-bowl/data
  Because the database is huge, so we only put few data here for running. 
