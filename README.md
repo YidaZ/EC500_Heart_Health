@@ -8,7 +8,7 @@ There are five us in total and we want to build a website for the kaggle project
 The main goal of this project is to build a website. In the website, we want the patients to upload their health data under their authorization, and our website could give some feedback base on machine learning.
 
 We would refer the database provided by Kaggle project sample data.
-As you can see, we mainly distributed our project to four parts: Data-analysis, Database, Image-processing and Website. We have set each part a folder where you can find more detailed information. 
+As you can see, we mainly distribute our project to four parts: Data-analysis, Image-processing and Website-building. We have set each part a folder where you can find more detailed information. 
 
 
 ##How to use our website
