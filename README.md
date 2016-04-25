@@ -8,6 +8,26 @@ There are five us in total and we want to build a website for the kaggle project
 The main goal of this project is to build a website. In the website, we want the patients to upload their health data under their authorization, and our website could give some feedback base on machine learning.
 
 We would refer the database provided by Kaggle project sample data.
+As you can see, we mainly distributed our project to four parts: Data-analysis, Database, Image-processing and Website. We have set each part a folder where you can find more detailed information. 
+
+
+##How to use our website
+
+####Prediagnose
+
+ This part is included in the Data-analysis. Except for their heart situation patients want to get , our website also provide a short quiz which gives feedback about the chance you might get hyperlipemia or hyperglycemia based on the data model we built. 
+ In this part, there are just one simple instruction to follow, filling in the form and waiting for the diagnose result. Simple and convenient to use. 
+
+####Heart health analysis
+
+ Since this project is based on Kaggle, so the MRI images uploaded by user should follow the format of the data from Kaggle. You can download the relevant data using this link:https://www.kaggle.com/c/second-annual-data-science-bowl/data.
+ 1. Orgnize all your MRI images in the folder following the format;
+ 2. Compress the folder and upload the zip file on the website；
+ 3. Click the button and wait for the analysis result.
+
+
+
+
 
 ### Requirements
 
