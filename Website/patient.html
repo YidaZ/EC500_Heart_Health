@@ -21,13 +21,14 @@
     <link href="../dist/css/timeline.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+    <link href="../dist/css/sb-admin-2.css" rel="stylesheet"> 
 
     <!-- Morris Charts CSS -->
     <link href="../bower_components/morrisjs/morris.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -193,11 +194,11 @@
                         </li> -->
                         <!-- <li>
                             <a href="message.html"><i class="fa fa-envelope-o fa-fw"></i> Messages</a>
-                        </li>
-                        <li>
-                            <a href="forum.html"><i class="fa fa-comments-o fa-fw"></i> Forum</a>
                         </li> -->
                         <!-- <li>
+                            <a href="forum.html"><i class="fa fa-comments-o fa-fw"></i> Forum</a>
+                        </li>
+                        <li>
                             <a href="appointment.html"><i class="fa fa-calendar fa-fw"></i> Appointment</a>
                         </li>
                         <li>
@@ -207,97 +208,190 @@
                             <a href="settings.html"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li> -->
                         <li>
-                            <a href="a type="button" id="Logout" onclick="btn_logout();""><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                            <a href="../../index.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
-        
+              
+                        
+                        
                      </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
             </div>
             <!-- /.navbar-static-side -->
         </nav>
-        
+
         <div id="page-wrapper">
             <div class="row">
-                <div class="col-lg-8">
-                    <h1 class="page-header">Welcome </h1>
+                <div class="col-lg-12">
+                    <h1 class="page-header" id="patient">Patients</h1>
                 </div>
+                <!-- /.col-lg-12 -->
             </div>
+
+
             <div class="row">
-                <div class="col-lg-8">
+                <div class="col-lg-12">
                     <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Add patient to your list
+
+                        <div class="panel-heading" id="patient_info">
+                            Mark Otto
                         </div>
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-lg-6">
-                                    <form role="form">
-                                        <div class="form-group input-group">
-                                            <span class="input-group-addon">@</span>
-                                            <input type="text" class="form-control" id="add_contact" placeholder="Please enter the name or id of your patient...">
-                                        </div>
-                                    </form>
+                                <div class="input-group">
+                <span class="input-group-btn">
+                    <span class="btn btn-primary btn-file">
+                         <input type="file" id="file" name="file" multiple>
+                    </span>
+                </span>
+                <input type="text" class="form-control" id="text_file" readonly>
+            </div>
+
+            <br />
+
+            <button type="button" class="btn btn-primary" id="btn_uploadFile" name="btn_uploadFile">Upload</button>
+            <label id="feedback">please upload a zip file<label>
+            <br/>
+            
+            <div id="loader-icon" style="display:none;"><img src="default.gif" /></div>
+            <br/>
+            </div>
+            </div>
+
+                <!-- <div class="col-lg-4 col-md-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-upload fa-5x"></i>
                                 </div>
-                                <div class="col-lg-2">
-                                    <button onclick="add()" id="add" class="btn btn-primary">Add to list</button>
-                                    <p id="reminder"></p>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">MRIs</div>
                                 </div>
-                                <div class="divider"></div>
                             </div>
                         </div>
+                     
+                            <div class="panel-footer">
+                               
+                                <div class="col-xs-9">
+                                    <span class="pull-left"><input type="file" name="file" id="file"></span>
+                                </div>
+                                <div class="col-xs-3">
+                                    <button type="button" id="btn_uploadFile" name="btn_uploadFile" class="btn btn-primary btn-xs">Submit</button>
+                                </div>
+                           
+                                <div class="clearfix"></div>
+                            </div>
+                        
+                    </div>
+                </div> -->
+
+
+            </div>
+                               <!--  <div class="col-lg-11"> -->
+                                    <!-- <div class="col-lg-2  col-md-4">
+                                        <div class="panel panel-primary">
+                                             <div class="panel-heading">
+                                                     <div class="row">
+                                                        <div class="col-xs-3 col-md-4">
+                                                             <i class="fa fa-upload fa-5x"></i>
+                                                        </div>
+                                                        <div class="col-xs-9 col-md-8 text-right">
+                                                             <div class="huge">MRIs</div>
+                                                        </div>
+                                                    </div>
+                                             </div>
+                                         </div>
+                                     </div>
+                                     <div class="col-lg-10  col-md-8">
+                                        <div class="input-group">
+                <span class="input-group-btn">
+                    
+                         <input type="file" id="file" name="file" multiple>
+                    
+                </span>
+                <input type="text" class="form-control" id="text_file" readonly>
+            </div>
+
+            <br/>
+
+            <button type="button" class="btn btn-primary" id="btn_uploadFile" name="btn_uploadFile">Upload</button> -->
+                       
+                            <!-- <div class="panel-footer">
+                                <form action="test.php" method="post" enctype="multipart/form-data">
+                                <div class="col-xs-9">
+                                    <span class="pull-left"><input type="file" name="upload_file" id="upload_file"></span>
+                                </div>
+                                <div class="col-xs-3">
+                                    <button type="submit" id="submit" name="submit" class="btn btn-primary btn-xs">Submit</button>
+                                </div>
+                            </div> -->
+
+                            
+
+                            <!-- </form> -->
+
+                                   <!-- <form role="form">
+                                        <div class="form-group">
+                                            <label>Name: </label>
+                                            <input class="form-control">
+                                            
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Patient ID: </label>
+                                            <input class="form-control">
+                                          
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Age: </label>
+                                            <input class="form-control">
+                                           
+                                        </div> -->
+                                   
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                MRIs
+                                            </div>
+                                            <!-- /.panel-heading -->
+                                            <div class="panel-body">
+                                                <div class="table-responsive">
+                                                    <table class="table table-hover">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>MRI</th>
+                                                                <th>TIME</th>
+                                                                <th>Description</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id ="list_files">
+                                                            <!-- <tr>
+                                                                <td>1/11/2001</td>
+                                                                <td><button type="button" class="btn btn-primary btn-sm">view</button></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>1/11/2002</td>
+                                                                <td><button type="button" class="btn btn-primary btn-sm">view</button></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>1/11/2003</td>
+                                                                <td><button type="button" class="btn btn-primary btn-sm">view</button></td>
+                                                            </tr> -->
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <!-- /.table-responsive -->
+                                                </div>
+                                            <!-- /.panel-body -->
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>           
                     </div>
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Patient List
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <div class="table-responsive">
-                                
-                                <div id="patient_list" class="table-responsive">
-                                    <!-- <thead>
-                                        <tr>
-                                            <th>No.</th>
-                                            <th>Name</th>
-                                            <th>Patient ID</th>
-                                            <th>MRI</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td><a href="patient.html">Mark Otto</a></td>
-                                            <td>111</td>
-                                            <td><button type="button" class="btn btn-primary btn-sm"><i class="fa fa-check-circle fa-fw"></i></button></td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td><a href="patient.html">Jacob Thornton</a></td>
-                                            <td>222</td>
-                                            <td><button type="button" class="btn btn-primary btn-sm"><i class="fa fa-bell fa-fw"></i></button></td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td><a href="patient.html">Larry Bird</a></td>
-                                            <td>333</td>
-                                            <td><button type="button" class="btn btn-primary btn-sm"><i class="fa fa-check-circle fa-fw"></i></button></td>
-                                        </tr>
-                                    </tbody> -->
-                                </div>
-                            </div>
-                            <!-- /.table-responsive -->
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
-                </div>
-            </div>
         </div>
         <!-- /#page-wrapper -->
 
@@ -305,27 +399,24 @@
     <!-- /#wrapper -->
 
     <!-- jQuery -->
-    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
-
+<!--     <script src="../bower_components/jquery/dist/jquery.min.js"></script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <!-- Bootstrap Core JavaScript -->
-    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>-->
 
     <!-- Metis Menu Plugin JavaScript -->
-    <script src="../bower_components/metisMenu/dist/metisMenu.min.js"></script>
+<!--    <script src="../bower_components/metisMenu/dist/metisMenu.min.js"></script>-->
 
     <!-- Morris Charts JavaScript -->
-    <script src="../bower_components/raphael/raphael-min.js"></script>
-    <script src="../bower_components/morrisjs/morris.min.js"></script>
-    <script src="../js/morris-data.js"></script>
+<!--    <script src="../bower_components/raphael/raphael-min.js"></script> -->
+ <!--   <script src="../bower_components/morrisjs/morris.min.js"></script>
+    <script src="../js/morris-data.js"></script> -->
 
     <!-- Custom Theme JavaScript -->
-    <script src="../dist/js/sb-admin-2.js"></script>
+<!-- <script src="../dist/js/sb-admin-2.js"></script>-->
+    <script src="js/patient_page.js"></script>
+    <script src="js/patient_main.js"></script>
     <script src="js/getsession.js"></script>
-    <script src="js/add_patient.js"></script>
-    
-
-
-
 </body>
 
 </html>
