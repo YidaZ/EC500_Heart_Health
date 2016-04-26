@@ -15,8 +15,7 @@ As you can see, we mainly distribute our project to four parts: Data-analysis, I
 
 ####Patients: Prediagnose
 
- This part is included in the Data-analysis. Except for their heart situation patients want to get , our website also provide a short quiz which gives feedback about your hypertention risk and blood sugar risk based on the data model we built. 
- In this part, there are just one simple instruction to follow, sign up and log in as a patient, fill in the form, then you will get the diagnose result. Simple and convenient to use. 
+ If you sign up and log in as a patient, you can simply take a short quiz based on your physical conditions, and get a prediction of your risk of hypertension and high blood sugar. The algorithm behind this is built on the data modal that we build from a large dataset. The instruction to use this site is very self-explanatory, simple and convenient. 
 
 ####Doctor: Heart health analysis
 
