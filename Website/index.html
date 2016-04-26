@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Homepage - HeartCare</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/agency.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="page-top" class="index">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">HeartCare</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#" data-toggle="modal" data-target="#popupLogin">Log In</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#" data-toggle="modal" data-target="#popupSignup">
+                            <span data-toggle="tooltip" data-placement="bottom" data-trigger="hover" title="Why sign up? Check out About session!">Sign Up</span>
+                        </a>
+                        <!-- <span  class="page-scroll" href="#" data-toggle="modal" data-target="#popupSignup">
+                            <a data-toggle="tooltip" data-placement="bottom" title="My Tooltip text!">Sign Up</a>
+                        </span> -->
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#portfolio">About</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#about">Timeline</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#team">Team</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="intro-text">
+                <div class="intro-lead-in">Welcome To HeartCare!</div>
+                <div class="intro-heading">We take care of your heart</div>
+                
+                <button type="button" class="btn btn-xl" data-toggle="modal" data-target="#popupLogin">Log In</button>
+                <button type="button" class="btn btn-xl" data-toggle="modal" data-target="#popupSignup">Sign Up</button>
+                <div class="modal fade" id= "popupLogin">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h3 class="modal-title text-primary">Log In</h3>
+                        </div>
+
+
+                        <form role="form" action="" method="">
+                        <div class="modal-body">
+                           
+                                <div class="form-group">
+                                    <input type="email" class="form-control" placeholder="Enter your email" name="useremail" id="useremail" required="required">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control" placeholder="Password" name="password" id="password" required="required">
+                                </div>
+
+                                <p id="LogError" style="color:red;">
+                                </p>
+                            
+                        </div>
+
+                        <div class="modal-footer"> 
+                            <div class="row">
+                                <div class="col-md-8">
+                                <button type="button" class="btn btn-primary" onclick="btn_logdoctor();" value="logdoctor" id="logdoctor">As a doctor</button>
+                                <button type="button" class="btn btn-primary" onclick="btn_logpatient();" value="logpatient" id="logpatient">As a patient</button>
+                            </div>
+                            <div class="col-md-4">
+                                <li><a href="#">Forget Password</a></li>
+                            </div>
+                            </div>
+                        </div>
+
+                        </form>
+                    </div>
+                </div>
+                </div>
+
+                <div class="modal fade" id= "popupSignup">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header text-primary">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h3 class="modal-title">Sign Up</h3>
+                        </div>
+
+
+                        <form role="form"> 
+                        <div class="modal-body text-primary">
+                            
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <p> You are a </p>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <label class="radio-inline">
+                                        <input type="radio" id="optradio" name="optradio" value="registerdoctor"> Doctor </label>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <label class="checkbox-inline">
+                                        <input type="radio" id="optradio" name="optradio" value="registerpatient"> Patient </label>
+                                    </div>
+                                </div>
+
+                            
+                                <div class="form-group">
+                                    <input type="email" class="form-control" placeholder="Enter your email" name="useremailR" id="useremailR" required="required">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control" placeholder="Password" name="passwordR" id="passwordR" required="required">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control" placeholder="Confirm Password" name="repeatpasswordR" id="repeatpasswordR" required="required">
+                                </div>
+                                <p id="RegError" style="color:red;">
+                                </p>
+                            
+                        </div>
+                        <div class="modal-footer"> 
+                            <button type="button" href="#" class="btn btn-success" onclick="btn_register()" value="register" id="register">Submit</button>
+                        </div>
+                        </form>
+
+
+                    </div>
+                </div>
+                </div>
+
+            </div>    
+        </div>
+    </header>
+
+    <!-- Portfolio Grid Section -->
+    <section id="portfolio" class="bg-light-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">About</h2>
+                </div>
+            </div>
+            <br><br>
+            <div class="row">
+                <div class="col-md-6 portfolio-item">
+                    <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="img/portfolio/mri.png" class="img-responsive" alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>About this website</h4>
+                        
+                    </div>
+                </div>
+                <div class="col-md-6 portfolio-item">
+                    <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="img/portfolio/heart.png" class="img-responsive" alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>About our hearts</h4>
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Project Timeline</h2>
+                </div>
+            </div>
+            <br><br>
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="timeline">
+                        <li>
+                            <div class="timeline-image">
+                                <img class="img-circle img-responsive" src="img/about/brainstorm.jpg" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4 class="subheading">Sprint 1</h4>
+                                    <h4>2/15/2016 - 2/25/2016</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted"><b>Brainstorm!!!</b> Define product functionality; Study the database and algorithm to use; Install OpenCV; Set up AWS; Research MRI images for diagnosing heart diseases; Design website. </p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-image">
+                                <img class="img-circle img-responsive" src="img/about/3.jpg" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4 class="subheading">Sprint 2</h4>
+                                    <h4>2/2/2016 - 3/24/2016</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted"><b>Progress!!!</b> Finish the algorithm and programming of the pre-anlysis of patients. Run the code provided in tutorial to fully understand the image process and EF calculation; make preparation to modify the method for future development. Modify doctor homepage which allows doctors add patients as contacts. Build simple model of uploading file an downloading file. </p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline">
+                            <div class="timeline-image">
+                                <img class="img-circle img-responsive" src="img/about/harder.png" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4 class="subheading">Sprint 3</h4>
+                                    <h4>3/25/2016 - 4/11/2016</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted"><b>Push more!!!</b> Analyze the raw data from image processing and finding a mathematical mapping between predict ef and actual ef to minimize the 'error'. Start working on the deep learning part and get the basic idea how to train the data info we get from the patients' MRI image. Modify doctor homepage which allows doctors add patients as contacts, upload patient's MRIs, and send report and messages to patient. Accomplish connections between doctors and patients which allows doctors add patients as contacts and check patients' info from patient list. Allow a doctor upload  and retrieve his/her patients' MRIs. </p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted    ">
+                            <div class="timeline-image">
+                                <img class="img-circle img-responsive" src="img/about/like.png" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4 class="subheading">Sprint 4</h4>
+                                    <h4>4/12/2016 - 4/26/2016</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted"><b>Finally!!!</b> Finish prediagnosis feature for patients. Improve algorithm from data analysis. Integrate algorithm with website to form a fully-functional dynamic website. Final touch of the whole project!</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-image">
+                                <h4>More                
+                                    <br>to come
+                                    <br>!!!</h4>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="bg-light-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Our Amazing Team</h2>
+                </div>
+            </div>
+            <br><br>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="team-member">
+                        <img src="img/team/1.png" class="img-responsive img-circle" alt="">
+                        <h4>Ruojin Cao</h4>
+                        <!-- <p class="text-muted">Lead Designer</p> -->
+                        <!-- <ul class="list-inline social-buttons">
+                            <li><a href="#"><i class="fa fa-twitter"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                            </li>
+                        </ul> -->
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="team-member">
+                        <img src="img/team/2.png" class="img-responsive img-circle" alt="">
+                        <h4>Yixuan Xiao</h4>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="team-member">
+                        <img src="img/team/3.png" class="img-responsive img-circle" alt="">
+                        <h4>Willian Lian</h4>
+                        
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="team-member">
+                        <img src="img/team/4.png" class="img-responsive img-circle" alt="">
+                        <h4>Yida Zhang</h4>
+                        
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="team-member">
+                        <img src="img/team/5.jpg" class="img-responsive img-circle" alt="">
+                        <h4>Shuo Lin</h4>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <p class="large text-muted">Enjoy!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <!-- Portfolio Modal 1 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <!-- Project Details Go Here -->
+                            <h2>Website discription</h2>
+                            
+                            
+                            <p><strong>If you are a doctor,</strong> you can use our website as your patient manage system. You can view your patients MRI images along with all the other medial records, and thus it makes it easy and convient to follow your patients' progress in their treatment.</p>
+                            <p><strong>If you are a patient,</strong> you can upload your own MRI images for your doctor to check your condition. And this website also provide a great way for you to communicate with your doctor.</p>
+
+                            <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Portfolio Modal 2 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>How much do you know about our heart? </h2>
+                    
+                            <p>Heart disease is an umbrella term for any type of disorder that affects the heart. Heart disease means the same as cardiac disease but not cardiovascular disease. Cardiovascular disease refers to disorders of the blood vessels and heart, while heart disease refers to just the heart.</p>
+
+                            <p>According to WHO (World Health Organization) and the CDC, heart disease is the leading cause of death in the UK, USA, Canada and Australia. The number of US adults diagnosed with heart disease stands at 26.6 million (11.3% of adult population).</p>
+
+                            <p>23.5% of all deaths in the USA today are caused by heart disease. We take a look at some of the most common examples of heart disease below.</p>
+                            <img class="img-responsive img-centered" src="img/portfolio/humanheart.png" alt="">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="js/classie.js"></script>
+    <script src="js/cbpAnimatedHeader.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="js/agency.js"></script>
+
+    <!-- login register JavaScript -->
+    <script src="js/login.js"></script>
+
+</body>
+
+</html>
