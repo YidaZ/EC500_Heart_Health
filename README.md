@@ -16,7 +16,7 @@ As you can see, we mainly distribute our project to four parts: Data-analysis, I
 ####Patients: Prediagnose
 
  This part is included in the Data-analysis. Except for their heart situation patients want to get , our website also provide a short quiz which gives feedback about your hypertention risk and blood sugar risk based on the data model we built. 
- In this part, there are just one simple instruction to follow, filling in the form and waiting for the diagnose result. Simple and convenient to use. 
+ In this part, there are just one simple instruction to follow, sign up and log in as a patient, fill in the form, then you will get the diagnose result. Simple and convenient to use. 
 
 ####Doctor: Heart health analysis
 
@@ -26,8 +26,13 @@ As you can see, we mainly distribute our project to four parts: Data-analysis, I
 #####Step 1 Format your testing data:
        1.1 Orgnize all your MRI images in the folder following the format;
  
-       1.2 Compress the folder and upload the zip file on the website；
+       1.2 Compress the folder in .zip；
        
-       1.3 Click the button and wait for the analysis result.
 #####Step 2
-###
+       2.1 Sign up as a doctor;
+       
+       2.2 Check your patients list;
+       
+       2.3 Upload the zip file 
+       
+       2.4 Click the button and wait for the analysis result.
