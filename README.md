@@ -5,7 +5,7 @@ Welcome anyone who wish to try this!
 
 This is a project for the course EC500 C1 in Bosotn University.
 There are five us in total and we want to build a website for the kaggle project: Heart Diease Diagnosing.
-The main goal of this project is to build a website. In the website, we want the patients to upload their health data under their authorization, and our website could give some feedback base on machine learning.
+The main goal of this project is to build a dynamic website which allows cardiologists to upload MRI images of their patients and get reliable ejection fraction (EF) value, a key factor to predict cardiovasucular disease. This website may save vast amount of time and energy of cardiologists and benefits patients as well.
 
 We would refer the database provided by Kaggle project sample data.
 As you can see, we mainly distribute our project to four parts: Data-analysis, Image-processing and Website-building. We have set each part a folder where you can find more detailed information. 
@@ -29,10 +29,12 @@ As you can see, we mainly distribute our project to four parts: Data-analysis, I
        1.2 Compress the folder in .zip；
        
 #####Step 2
-       2.1 Sign up as a doctor;
+       2.1 Sign up and log in as a doctor;
        
-       2.2 Check your patients list;
+       2.2 Add existing patient to your patient list;
        
-       2.3 Upload the zip file 
+       2.3 Choose the patient that you want to upload MRI images of
        
-       2.4 Click the button and wait for the analysis result.
+       2.4 Choose the formatted zip file with that patient MRI images
+       
+       2.5 Click the "upload" button and wait for the analysis result.
