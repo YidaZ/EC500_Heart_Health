@@ -13,15 +13,21 @@ As you can see, we mainly distribute our project to four parts: Data-analysis, I
 
 ##How to use our website
 
-####Prediagnose
+####Patients: Prediagnose
 
  This part is included in the Data-analysis. Except for their heart situation patients want to get , our website also provide a short quiz which gives feedback about your hypertention risk and blood sugar risk based on the data model we built. 
  In this part, there are just one simple instruction to follow, filling in the form and waiting for the diagnose result. Simple and convenient to use. 
 
-####Heart health analysis
+####Doctor: Heart health analysis
 
- Since this project is based on Kaggle, so the MRI images uploaded by user should follow the format of the data from Kaggle. It is something like: train/1/study/sax_50... . Your can name the top folder as whatever you like, which means it doesn't have to be train. But after that the standard format should followed, or you might not be able to get the right result. You can download the relevant data using this link:https://www.kaggle.com/c/second-annual-data-science-bowl/data.
- 1. Orgnize all your MRI images in the folder following the format;
- 2. Compress the folder and upload the zip file on the website；
- 3. Click the button and wait for the analysis result.
-
+ Since this project is based on Kaggle, so the MRI images uploaded by user should follow the format of the data from Kaggle. It is something like: train/1/study/sax_50... . Your can name the top folder as whatever you like, which means it doesn't have to be train. But after that the standard format should followed, or you might not be able to get the right result. You can download the sample data under the Dataset folder using the link we offered there.
+ As a doctor, these are steps you should follow:
+ 
+#####Step 1 Format your testing data:
+       1.1 Orgnize all your MRI images in the folder following the format;
+ 
+       1.2 Compress the folder and upload the zip file on the website；
+       
+       1.3 Click the button and wait for the analysis result.
+#####Step 2
+###
