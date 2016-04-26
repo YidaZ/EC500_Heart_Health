@@ -20,19 +20,8 @@ As you can see, we mainly distribute our project to four parts: Data-analysis, I
 
 ####Heart health analysis
 
- Since this project is based on Kaggle, so the MRI images uploaded by user should follow the format of the data from Kaggle. You can download the relevant data using this link:https://www.kaggle.com/c/second-annual-data-science-bowl/data.
+ Since this project is based on Kaggle, so the MRI images uploaded by user should follow the format of the data from Kaggle. It is something like: train/1/study/sax_50... . Your can name the top folder as whatever you like, which means it doesn't have to be train. But after that the standard format should followed, or you might not be able to get the right result. You can download the relevant data using this link:https://www.kaggle.com/c/second-annual-data-science-bowl/data.
  1. Orgnize all your MRI images in the folder following the format;
  2. Compress the folder and upload the zip file on the website；
  3. Click the button and wait for the analysis result.
 
-
-
-
-
-### Requirements
-
--  Building Website 
-	- [x] Index page
-	- [x] Log in page
-	- [x] The home page of patient
-	- [x] The home page of doctor
