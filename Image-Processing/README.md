@@ -1,5 +1,6 @@
 ##This folder contains the code for image processing using python 2.7.6 and Opencv 3.0.0
 
+ The segment.py is previous version of code which is test on local ubuntu. The final.py is the code is the final version which is integreted to the website.
 ##Introduction to Image Processing
 
 -  Step 1: Load data 
