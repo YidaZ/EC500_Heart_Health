@@ -28,7 +28,15 @@
   
   Once we can get the EDV and ESV after this step, the ejection fraction can be calculated using the basic formula :EF = (EDV-ESV)*100/EDV.
   
-  Here is one important improvemnt to ungrade the accuracy. In the data-anslysis part, the data model we built can be used to amend this formula based on all the running results of the whole dataset. So the formula we applied is: EF = (EDV-ESV)*100/EDV.
+  Here is one important improvemnt to ungrade the accuracy. In the data-anslysis part, the data model we built can be used to amend this formula based on all the running results of the whole dataset. 
+  So the formula we applied is: 
+  
+  EF = (EDV-ESV)*100/EDV, when EF > 0.75;
+  
+  EF = ((EDV-ESV)*100/EDV*0.1335)+0.533,6 when 0.5 < EF <0.75;
+  
+  EF = (EDV-ESV)*100/EDV, when EF < 0.5.
+  
 
 ##Limitations
 
