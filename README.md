@@ -37,17 +37,20 @@ As you can see, we mainly distribute our project to four parts: Data-analysis, I
        2.4 Choose the formatted zip file with that patient MRI images
        
        2.5 Click the "upload" button and wait for the analysis result.
-Instruction to build the website:
-       Set up a EC2 instance, install apache, PHP, MySQL to host the website and Pyhton with OpenCV for image processing.
-       The database contains three tables. 
-            1. Patient Account.
-            2. Doctor Account.
-            3. Patient and Doctor. (for doctors adding patients as contacts)
-            4. File. (Columns: file_id file_oldname, file_name, file_type, upload_time, upload_path, patient_email,    doctor_email, EF, report)
-       Repository Contents & Hierarchy: The website/heart.zip contains the integrated whole website. You can download it and run on your own server.
-              In the heart.zip:
-              1./startbootstrap/doctor contains all the code for doctor pages.
-              2./startbootstrap/doctor/upload/ is set to be the directory where all MRI files uploaded to.
-              3./startbootstrap/doctor/patient contains all the code for patient pages.
+##Instruction to build the website:
+####Environment and Tools:
+Set up a EC2 instance, install apache, PHP, MySQL to host the website and Pyhton with OpenCV, numpy for image processing.
+####Database Design:       
+#####The database contains three tables. 
+         1. Patient Account.
+         2. Doctor Account.
+         3. Patient and Doctor. (for doctors adding patients as contacts)
+         4. File. (Columns: file_id file_oldname, file_name, file_type, upload_time, upload_path, patient_email,    doctor_email, EF, report)
+####Repository Contents & Hierarchy: 
+The website/heart.zip contains the integrated whole website. You can download it and run on your own server.
+#####In the heart.zip:
+         1./startbootstrap/doctor contains all the code for doctor pages.
+         2./startbootstrap/doctor/upload/ is set to be the directory where all MRI files uploaded to.
+         3./startbootstrap/doctor/patient contains all the code for patient pages.
             
  
