@@ -37,7 +37,7 @@ As you can see, we mainly distribute our project to four parts: Data-analysis, I
        2.4 Choose the formatted zip file with that patient MRI images
        
        2.5 Click the "upload" button and wait for the analysis result.
-##Instruction to build the website:
+##Build Instruction:
 ####Environment and Tools:
 Set up a EC2 instance, install apache, PHP, MySQL to host the website and Pyhton with OpenCV, numpy for image processing.
 ####Database Design:       
