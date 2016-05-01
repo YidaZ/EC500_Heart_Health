@@ -46,7 +46,7 @@ We are using ubuntu 14.04.
 Here is the link how to Install OpenCV 3.0 and Python 2.7+ on Ubuntu: http://www.pyimagesearch.com/2015/06/22/install-opencv-3-0-and-python-2-7-on-ubuntu/
 
 #####Additional libraries
-There are libraries requried for running the test: numpy matplotlib dicom pydicom scipy. There are many resources you can find online how to add these libraries to your ubuntu.
+There are libraries requried for running the test: numpy,matplotlib,pydicom,scipy. There are many resources you can find online how to add these libraries to your ubuntu.
 
 #####Instruction
 To run the test, put segment.py and the sample data downloaded from the link we provided into a folder named as "train". The sample data here means a numbered folder like 2 or 3, which is the id number for each patient. Then getting terminal running under cv environment. 
