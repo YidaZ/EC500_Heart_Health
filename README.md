@@ -1,7 +1,7 @@
 #EC500 C1 Heart Health Project
 Our website : http://52.39.61.199/heart
 Welcome anyone who wish to try this!
-For testing calculating EF function, you could use the zip file called "test.zip" above to upload!
+For testing calculating EF function, you could use the zip file called "Test.zip" above to upload!
 ## Introduction
 
 This is a project for the course EC500 C1 in Bosotn University.
