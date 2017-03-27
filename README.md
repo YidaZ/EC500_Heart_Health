@@ -1,4 +1,4 @@
-#EC500 C1 Heart Health Project
+# EC500 C1 Heart Health Project
 Our website : http://52.39.61.199/heart
 Welcome anyone who wish to try this!
 For testing calculating EF function, you could use the zip file called "Test.zip" above to upload!
